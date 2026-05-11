@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  background: #F5F4EF !important;
+  color: #1A1915 !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Dropdown ─────────────────────────────────────────────────────────────── */
+.Select-control {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E0DDD6 !important;
+  border-radius: 8px !important;
+  color: #1A1915 !important;
+  box-shadow: none !important;
+}
+.Select-control:hover { border-color: #C8C4BC !important; }
+.is-focused .Select-control { border-color: #CF6A4C !important; box-shadow: 0 0 0 3px rgba(207,106,76,0.12) !important; }
+.Select-menu-outer {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E0DDD6 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+  margin-top: 4px !important;
+}
+.Select-option { background-color: #FFFFFF !important; color: #5A5750 !important; font-size: 13px !important; }
+.Select-option.is-focused { background-color: #FBF6F3 !important; color: #1A1915 !important; }
+.Select-option.is-selected { background-color: #FDF0EB !important; color: #CF6A4C !important; font-weight: 500 !important; }
+.Select-placeholder { color: #B0ACA4 !important; }
+.Select-value-label { color: #1A1915 !important; font-size: 13px !important; }
+.Select-arrow-zone svg, .Select-arrow { color: #B0ACA4 !important; }
+.Select--multi .Select-value {
+  background-color: #FDF0EB !important;
+  border: 1px solid #F0D5C8 !important;
+  color: #A0502C !important;
+  border-radius: 5px !important;
+  font-size: 12px !important;
+}
+.Select--multi .Select-value-icon { border-right-color: #F0D5C8 !important; color: #A0502C !important; }
+.Select--multi .Select-value-icon:hover { background-color: #F7D9CC !important; }
+.Select-input > input { color: #1A1915 !important; }
+
+/* ── Table filter inputs ──────────────────────────────────────────────────── */
+.dash-filter input {
+  background: #FAFAF8 !important;
+  color: #1A1915 !important;
+  border: 1px solid #E0DDD6 !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  font-size: 12px !important;
+}
+.dash-filter input:focus { border-color: #CF6A4C !important; outline: none !important; }
+
+/* ── Scrollbar ────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D4D0C8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #B8B4AC; }
