@@ -120,6 +120,11 @@ def fetch():
     alloc_end   = target_day.strftime("%Y-%m-%d 23:59:59")
     log.info(f"Target day: {alloc_start[:10]}")
 
+    expected_file = os.path.join(_DATA_STORE, f"{target_day.strftime('%Y-%m-%d')}_first_call_byDSDB.xlsx")
+    if os.path.exists(expected_file):
+        log.info(f"Already up to date: {expected_file}. Skipping.")
+        return
+
     from dbconnections import get_db_handle
     db_conn = get_db_handle(database="counselling", mysqldb=8)
     cursor  = db_conn.cursor(dictionary=True)

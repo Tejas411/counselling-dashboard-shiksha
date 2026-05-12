@@ -65,6 +65,23 @@ else:
 
 rdf["base_course_name"] = rdf["base_course"].map(_bc_map).fillna("Course " + rdf["base_course"].astype(str))
 
+# ── Allocations ───────────────────────────────────────────────────────────────
+_alloc_files = [f for f in _glob.glob("data-store/counselling_allocation.xlsx")
+                if not os.path.basename(f).startswith("~$")]
+if _alloc_files:
+    allodf = pd.read_excel(_alloc_files[0])
+    allodf["date"]           = pd.to_datetime(allodf["date"], errors="coerce")
+    allodf["ds_score_bucket"] = pd.to_numeric(allodf["ds_score_bucket"], errors="coerce")
+    allodf["date_str"]       = allodf["date"].dt.strftime("%d %b")
+    _amin, _amax = allodf["date"].min(), allodf["date"].max()
+    _alloc_date_range = (
+        f"{_amin.strftime('%#d %b %Y')}  –  {_amax.strftime('%#d %b %Y')}"
+        if pd.notna(_amin) and pd.notna(_amax) else "N/A"
+    )
+else:
+    allodf            = pd.DataFrame(columns=["date", "ds_score_bucket", "userId", "date_str"])
+    _alloc_date_range = "N/A"
+
 # ── Fresh Leads ────────────────────────────────────────────────────────────────
 _fl_files = sorted(f for f in _glob.glob("data-store/*_first_call_byDSDB.xlsx")
                    if not os.path.basename(f).startswith("~$"))

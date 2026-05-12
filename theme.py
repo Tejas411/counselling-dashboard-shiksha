@@ -101,11 +101,12 @@ def navbar(active):
                 }),
             ], style={"marginRight": "40px", "display": "flex", "alignItems": "center"}),
             html.Div([
-                nav_link("Applications", "/",            active == "applications"),
-                nav_link("Calls",        "/calls",        active == "calls"),
-                nav_link("Responses",    "/responses",    active == "responses"),
-                nav_link("Fresh Leads",  "/fresh-leads",  active == "fresh_leads"),
-                nav_link("Leaderboard",  "/leaderboard",  active == "leaderboard"),
+                nav_link("Applications", "/",             active == "applications"),
+                nav_link("Calls",        "/calls",         active == "calls"),
+                nav_link("Responses",    "/responses",     active == "responses"),
+                nav_link("Fresh Leads",  "/fresh-leads",   active == "fresh_leads"),
+                nav_link("Leaderboard",  "/leaderboard",   active == "leaderboard"),
+                nav_link("Allocations",  "/allocations",   active == "allocations"),
             ], style={"display": "flex", "alignItems": "flex-end", "paddingTop": "4px"}),
         ], style={
             "maxWidth": "100%", "margin": "0 auto",

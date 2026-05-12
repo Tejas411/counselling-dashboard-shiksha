@@ -22,8 +22,8 @@ RESPONSE_CREATION_QUERY = """
 """
 
 SHORTLIST_RESPONSE_QUERY = """
-    SELECT user_id, loggedin_user_id AS counsellor_id, is_paid AS is_client,
-           entity_id AS uilp_id, subentity_id AS base_course, usd.created AS created_on
+    SELECT user_id, loggedin_user_id AS counsellor_id, entity_id AS uilp_id, 
+            subentity_id AS base_course, is_paid AS is_client, usd.created created_on
     FROM counselling.user_shortlist_data usd
     LEFT JOIN counselling.RMS_counsellor rms
         ON rms.counsellor_id = usd.loggedin_user_id
@@ -80,7 +80,6 @@ def update_response_creation():
 def update_shortlist_responses():
     path = find_file("edit-shortlist-responses*.xlsx", "shortlist responses")
     existing = pd.read_excel(path)
-    existing.rename(columns={"is_paid": "is_client"}, inplace=True)
     existing["created_on"] = pd.to_datetime(existing["created_on"])
 
     if existing.empty:

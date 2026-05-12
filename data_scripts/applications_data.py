@@ -11,6 +11,7 @@ START_DATE = "2026-05-01"
 APP_SOLD_QUERY = """
     SELECT
         id, counsellor_id, team_lead_id, student_user_id,
+        student_name, student_email_id, mobile_number,
         institute_id, base_course_id,
         application_screenshot_path, payment_screenshot_path,
         call_recording_id, last_call_date, application_submission_date,
